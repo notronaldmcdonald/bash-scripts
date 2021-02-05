@@ -1,4 +1,4 @@
-#!/bin/zsh
+'#!/bin/zsh
 
 # the line above is called a 'shebang'. the shebang essentially defines what interpreter/shell the script runs with.
 # in this case, the script runs with zsh, as it is the default macos interpreter, and is required to download some of apple's devtools.
@@ -20,6 +20,8 @@ brew install neofetch
 # once you've read the comments, you can run the command 'chmod +x <script>'. replace <script> with the filename including the extension.
 # once you've run that, the script can now be executed. this is typically achieved by typing ./<script> in the terminal.
 # if the script has the executable perms, you can also simply double click it in the folder you have it in.
+brew --version
+# this line will simply report the version of homebrew running. if it reports an output, then it works.
 echo Done.
 # General Troubleshooting
 # to open the terminal, search for it using the macos search function.
