@@ -1,9 +1,9 @@
 # bash-scripts
 repository of my bash scripts
 
-currently includes **4** scripts.
+currently includes **5** scripts.
 
-**sync.sh** - updates an arch linux or arch based system and downloads some basic tools that i use
+**sync.sh** - updates an arch linux or arch based system and downloads some basic tools that i use (documented version exists)
 
 **install_neofetch.sh** - a script to install the required xcode tools for homebrew, homebrew itself, and neofetch for a macos machine. includes comments.
 
