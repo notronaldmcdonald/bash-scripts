@@ -1,7 +1,7 @@
 # bash-scripts
 repository of my bash scripts
 
-currently includes **3** scripts.
+currently includes **4** scripts.
 
 **sync.sh** - updates an arch linux or arch based system and downloads some basic tools that i use
 
