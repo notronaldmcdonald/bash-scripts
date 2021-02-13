@@ -6,10 +6,15 @@
 
 BLUE=$(tput setaf 6) # this variable sets any text following it to blue.
 RESET=$(tput sgr0) # this variable removes any formatting applied previously INCLUDING anything set forth in .bashrc
+GREEN=$(tput setaf 2)
+RED=$(tput setaf 1)
 
 # begin script
 
-echo This script will install the set of utilities that you use, and update the system.
+echo "${RED}Note that this script is intended to be run after you've successfully finished the install."
+echo "Don't run the script until after you've done everything listed in the installation guide.${RESET}"
+read -n1 -r -p "${BLUE}Press any key to start...${RESET}"
+echo "This script updates the system (in case an older installation media is used), and downloads and installs some basic tools via pacman."
 # echo simply echoes the text following it to a new line in the command prompt. this is useful for making interactive scripts.
 read -n1 -r -p "Press any key to start, or CTRL+C to stop execution."
 # this command acts like DOS-PAUSE, which stops the script from processing further commands until user input is delivered. CTRL + C is an escape sequence.
@@ -24,7 +29,7 @@ pacman -Syu --noconfirm
 echo System update complete.
 read -n1 -r -p "If you wish to stop at just updating the system, press CTRL+C. Otherwise, press any key."
 echo Will this installation require a GUI?
-echo Type YES if yes. Anything else is no.
+echo ${BLUE}Type YES if yes. Anything else is no.${RESET}
 read input1
 # this is the more common variation of read used in a script. whatever the end user inputs, it becomes the definition or value of variable 'input1'.
 # this can be used to create much more interactive scripts, and scripts that can be used dynamically by any user.
@@ -39,11 +44,12 @@ else
 fi
 # marks the end of the statement.
 if [ "input1" = "YES" ]; then
-  echo Basic tools installed. Set up the sudoers file, create a user account, and sign out of root.
-  echo Afterwards, you can install your desktop environment of choice with ${BLUE}sudo pacman -S <desktop_environment>${RESET}
+  echo ${GREEN}Basic tools installed.${RESET}
+  echo Set up the sudoers file, create a user account, install a desktop environment and sign out of root.
   echo Have fun with your new Arch Linux system!
 else
-  echo Basic tools installed. Set up the sudoers file, create a user account, and sign out of root.
+  echo ${GREEN}Basic tools installed.${RESET}
+  echo Set up the sudoers file, create a user account, and sign out of root.
   echo Have fun with your new Arch Linux system!
 fi
 
