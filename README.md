@@ -1,5 +1,5 @@
 # bash-scripts
-repository of my bash scripts
+repository of my bash scripts.
 
 currently includes **6** scripts.
 
