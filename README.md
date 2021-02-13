@@ -10,3 +10,5 @@ currently includes **5** scripts.
 * **secure_backup.sh** - a bash script that creates an archive of a user's target backup directory, encrypts it, and then sends it over the internet.
 
 * **simple_ssh.sh** - a script to make connecting via OpenSSH just a bit more friendly.
+
+*previous copies of these scripts are kept in the previous branch. this is in case a mistake is made and isn't caught before being pushed to master.
