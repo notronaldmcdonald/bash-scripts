@@ -1,12 +1,12 @@
 #!/bin/bash
-# Developed by Brett. (https://github.com/notronaldmcdonald/)
+# Developed by Brett. (https://www.github.com/notronaldmcdonald)
 # Leave this heading intact if you choose to share the script!
 
 # This script backs up a directory of your choice (anywhere from '/' to a single file.)
 # It places the files in an archive. It then uses GnuPG to encrypt the archive.
 # Finally, it sends the file to a target destination using rsync. This can be either to another local machine, or over the internet.
 # Sending over the internet requires you to have properly configured port forwarding and SSH on the target machine.
-# Backups are saved to your home folder. You can modify the target using the ARCHIVE_TARGET_DIRECTORY variable below.
+# Backups are saved to your home folder.
 
 # some variables
 

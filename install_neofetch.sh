@@ -1,4 +1,6 @@
-'#!/bin/zsh
+#!/bin/zsh
+# Developed by Brett. (https://www.github.com/notronaldmcdonald)
+# For personal use. If you have this script, you aren't allowed to redistribute it without asking.
 
 # the line above is called a 'shebang'. the shebang essentially defines what interpreter/shell the script runs with.
 # in this case, the script runs with zsh, as it is the default macos interpreter, and is required to download some of apple's devtools.
