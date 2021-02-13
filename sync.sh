@@ -14,14 +14,11 @@ echo Type YES if yes. Anything else is no.
 read input1
 if [ "input1" = "YES" ]; then
   pacman -S --noconfirm sudo nano neofetch xorg-server
-else
-  pacman -S --noconfirm sudo nano neofetch
-fi
-if [ "input1" = "YES" ]; then
   echo Basic tools installed. Set up the sudoers file, create a user account, and sign out of root.
   echo Afterwards, you can install your desktop environment of choice with ${BLUE}sudo pacman -S <desktop_environment>${RESET}
   echo Have fun with your new Arch Linux system!
 else
+  pacman -S --noconfirm sudo nano neofetch
   echo Basic tools installed. Set up the sudoers file, create a user account, and sign out of root.
   echo Have fun with your new Arch Linux system!
 fi
