@@ -17,7 +17,7 @@ GREEN="$(tput setaf 2)"
 BLUE="$(tput setaf 6)"
 RESET="$(tput sgr0)"
 USE_TTY_FETCH () { alias neofetch='neofetch --config /home/brett/.config/neofetch/config_tty.conf'; }
-ssh-defaults () { ssh -p 27003 brett@10.0.0.246; }
+ssh-defaults () { ssh -p <port> brett@10.0.0.246; }
 
 if [ "$TERM" = "linux" ]; then
 
