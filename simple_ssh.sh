@@ -4,20 +4,29 @@
 
 # some variables
 
+store=$HOME/.bmac
 RESET=$(tput sgr0)
 BOLD=$(tput bold)
-if [ -e .vars ]; then
-  source .vars
+if [ -e $store/vars ]; then
+  source $store/vars
 fi
 
-# firstrun check
+# firstrun checks
 
-if [ -e .firstrun ]; then
-  source .firstrun
+echo "${RESET}Starting..."
+if [ -e $store ]; then
+  echo Successfully found user variables folder.
+else
+  echo User variables folder not found. Creating now...
+  mkdir $HOME/.bmac
+  echo Directory created at "$HOME/.bmac". This directory will be used across all scripts.
+fi
+if [ -e $store/firstrun ]; then
+  source $store/firstrun
 else
   echo "${RESET}Creating firstrun file..."
-  touch .firstrun
-  echo "export firstrun=true" > .firstrun
+  touch $store/firstrun
+  echo "export firstrun=true" > $store/firstrun
   echo "Done!"
 fi
 
