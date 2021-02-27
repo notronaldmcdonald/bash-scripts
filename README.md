@@ -10,7 +10,7 @@ currently includes **9** scripts.
 * **secure_backup.sh** - a bash script that creates an archive of a user's target backup directory, encrypts it, and then sends it over the internet.
 
 * **simple_ssh.sh** - a script to make connecting via OpenSSH just a bit more friendly.
- * *simple_ssh_documented.sh* - same thing as above, but with comments.
+  *  *simple_ssh_documented.sh* - same thing as above, but with comments.
 * **apt_update.sh** - because updating apt-based systems is shit.
 
 # malware
