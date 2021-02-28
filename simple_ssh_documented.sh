@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Developed by Brett. (https://www.github.com/notronaldmcdonald)
 # Leave this heading intact if you choose to share the script!
 

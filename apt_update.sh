@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Developed by Brett. (https://github.com/notronaldmcdonald)
 # Because apt is shitty.
 apt-get update
