@@ -19,4 +19,6 @@ currently includes **9** scripts.
 
 * **why** - i wrote this at 1am
 
-*this branch is used when working with git. this is to make sure master doesn't get overwritten, as it typically has the cleanest working versions of all of my scripts*
+*the dev branch is used when working with git. this is to make sure master doesn't get overwritten, as it typically has the cleanest working versions of all of my scripts*
+
+*the previous branch contains the previous versions of every script.*
