@@ -19,4 +19,4 @@ currently includes **9** scripts.
 
 * **why** - i wrote this at 1am
 
-*previous copies of these scripts are kept in the previous branch. this is in case a mistake is made and isn't caught before being pushed to master.*
+*this branch is used when working with git. this is to make sure master doesn't get overwritten, as it typically has the cleanest working versions of all of my scripts*
