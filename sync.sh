@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+
 # Developed by Brett. (https://www.github.com/notronaldmcdonald)
 # For personal use. If you have this script, you aren't allowed to redistribute it without asking.
 
