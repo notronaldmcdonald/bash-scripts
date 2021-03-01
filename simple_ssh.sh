@@ -69,7 +69,7 @@ if [ "$answer_1" != "${answer_1#[KEYkey]}" ]; then
   else
     echo "An unknown error occurred."
   fi
-elif [ "$answer_1" != "${answer_1#[PASSWDpasswd]}" ]; then
+elif [ "$answer_1" != "${answer_1#[PASSWDpasswd]}" ] || [ "$answer_1" != "${answer_1#[PASSpass]}" ]; then
   if [ "$firstrun" = "true" ]; then
     echo "Would you like to load the previous session settings? Type YES for yes, NO for no."
     read answer
@@ -97,6 +97,15 @@ elif [ "$answer_1" != "${answer_1#[PASSWDpasswd]}" ]; then
     echo "Okay. Connecting with your settings now!"
     ssh -p $target_port $target_user@$target_ip
   fi
+elif [ "$answer_1" != "${answer_1#[RESETreset]}" ]; then
+  echo "Are you sure you want to reset?"
+  read -n1 -r -p "Press ENTER to confirm, CTRL+C to exit."
+  echo "Resetting script to shipped state (removing variable files)..."
+  rm -f $store/vars $store/firstrun
+  echo "Done. Exiting..."
+  exit
+else
+  echo "Unexpected input received! Exiting..." && exit
 fi
 
 # end script
