@@ -7,8 +7,52 @@
 store=$HOME/.bmac
 RESET=$(tput sgr0)
 BOLD=$(tput bold)
+RED=$(tput setaf 1)
+currentuser=$(whoami)
 if [ -e $store/vars ]; then
   source $store/vars
+fi
+
+# initial installation
+
+if [ -e $HOME/.issh-static ]; then
+  source $HOME/.issh-static
+else
+  touch $HOME/.issh-static && echo "export install_refused_user=0" > $HOME/.issh-static
+  source $HOME/.issh-static
+fi
+if [ -e /etc/issh-installed ]; then
+  source /etc/issh-installed
+else
+ echo "Not installed as a system binary."
+fi
+# after checking for, or creating permanence file to keep special variable.
+if [ "$install_refused_user" = "0" ] && [ ! -e /etc/issh-installed ]; then
+  read -p "${RESET}Would you like to install the script as a system binary [y/N]?" install_yn
+  if [ "$install_yn" = "y" ]; then
+    echo "Okay! Starting installation..."
+    if [ "${currentuser}" != "root" ]; then
+      echo "${RED}${BOLD}Failed${RESET}${RED}: The installation process requires the script to be run as ${BOLD}root!${RESET}"
+      echo "In order to run as root, run 'sudo ./simple_ssh.sh'."
+      rm -f $HOME/.issh-static
+      exit
+    else
+      echo "Copying to /usr/local/bin/interactive-ssh..."
+      cp simple_ssh.sh /usr/local/bin/interactive-ssh
+      echo "Installed as system binary. Run 'interactive-ssh' to start the script anywhere."
+      echo "export installed=1" > /etc/issh-installed
+    fi
+  else
+    echo "Okay. I won't install myself as a system binary."
+    echo "export install_refused_user=1" > $HOME/.issh-static
+    echo "Proceeding with script execution now!"
+    sleep 1
+    echo
+  fi
+else
+  # don't install if user refused the install OR if already installed.
+  sleep 1
+  echo "you ever just exist?" > /dev/null
 fi
 
 # firstrun checks
