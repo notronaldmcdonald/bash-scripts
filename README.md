@@ -21,6 +21,6 @@ currently includes **10** scripts.
 
 * **why** - i wrote this at 1am
 
-*the dev branch is used when working with git. this is to make sure master doesn't get overwritten, as it typically has the cleanest working versions of all of my scripts*
+*the dev branch is used when working on projects. it contains the most recent versions of my scripts, but they either haven't been fully tested (or tested at all) or are broken.  this is to make sure master doesn't get overwritten, as it typically has the most recent working versions of all of my scripts*
 
 *the previous branch contains the previous versions of every script. this is to make sure bugs that are missed during testing and the merge from dev to master can be reversed easily.*
