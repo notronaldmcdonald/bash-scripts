@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-
-
 # Developed by Brett. (https://www.github.com/notronaldmcdonald)
 # For personal use. If you have this script, you aren't allowed to redistribute it without asking.
 
@@ -25,12 +23,12 @@ echo Will this installation require a GUI?
 echo ${BLUE}Type YES if yes. Anything else is no.${RESET}
 read input1
 if [ "input1" = "YES" ]; then
-  pacman -S --noconfirm sudo nano neofetch xorg-server
+  pacman -S --noconfirm sudo nano neofetch xorg-server zsh
   echo ${GREEN}Basic tools installed.${RESET}
   echo Set up the sudoers file, create a user account, install a desktop environment and sign out of root.
   echo Have fun with your new Arch Linux system!
 else
-  pacman -S --noconfirm sudo nano neofetch
+  pacman -S --noconfirm sudo nano neofetch zsh
   echo ${GREEN}Basic tools installed.${RESET}
   echo Set up the sudoers file, create a user account, and sign out of root.
   echo Have fun with your new Arch Linux system!

@@ -36,10 +36,10 @@ read input1
 # in this case, since the user entered YES when we asked if they needed a GUI, pacman will install the basic tools and the X display server, which is required for a GUI.
 if [ "input1" = "YES" ]; then
   # this is the beginning of a IF statement. this is a type of logical statement. as you can probably see, if the variable from earlier equals to YES, then something happens.
-  pacman -S --noconfirm sudo nano neofetch xorg-server
+  pacman -S --noconfirm sudo nano neofetch xorg-server zsh
 else
   # this portion of the statement is what will happen if the value of input1 is anything BUT 'YES'. this runs the same pacman command, but doesn't install X.
-  pacman -S --noconfirm sudo nano neofetch
+  pacman -S --noconfirm sudo nano neofetch zsh
   # this installs the 'sudo' package (which means you don't have to log in to the root account.), 'nano' (a commandline text editor), and neofetch.
 fi
 # marks the end of the statement.
