@@ -1,7 +1,7 @@
 # bash-scripts
 repository of my bash scripts.
 
-currently includes **10** scripts.
+currently includes **9** scripts.
 
 * **sync.sh** - updates an arch linux or arch based system and downloads some basic tools that i use
   * *sync_documented.sh* - a variation of sync with comments.
@@ -13,7 +13,6 @@ currently includes **10** scripts.
   *  *simple_ssh_documented.sh* - same thing as above, but with comments.
 * **apt_update.sh** - because updating apt-based systems is shit.
 
-* **arrow.sh** - an interactive arch installation script. despite the repo name, runs zsh.
 
 # malware
 
