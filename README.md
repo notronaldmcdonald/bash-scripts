@@ -1,9 +1,9 @@
 # bash-scripts
 repository of my bash scripts.
 
-currently includes **10** scripts.
+currently includes **11** scripts.
 
-* **sync.sh** - updates an arch linux or arch based system and downloads some basic tools that i use
+* **sync.sh** - updates an arch linux or arch based system and downloads some basic tools that i use. (redundant)
   * *sync_documented.sh* - a variation of sync with comments.
 * **install_neofetch.sh** - a script to install the required xcode tools for homebrew, homebrew itself, and neofetch for a macos machine. includes comments.
 
@@ -13,7 +13,7 @@ currently includes **10** scripts.
   *  *simple_ssh_documented.sh* - same thing as above, but with comments.
 * **apt_update.sh** - because updating apt-based systems is shit.
 
-* **csync.sh** - gets dotfiles and moves them to the home directory.
+* **csync.sh** - gets dotfiles and moves them to the home directory. (redundant)
 
 # malware
 
