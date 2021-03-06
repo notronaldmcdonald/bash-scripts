@@ -74,6 +74,44 @@ else
   echo "Done!"
 fi
 
+# check for script updates
+
+echo "Checking for updates..."
+curl -fs https://raw.githubusercontent.com/notronaldmcdonald/bash-scripts/master/live/ssh/vtag -o $store/.vtag
+source $store/.vtag
+if [ "$vtag" = "1a" ]; then
+  rm -f $store/.vtag
+  echo "Script up to date."
+  echo "Starting execution..."
+else
+  read -p "Script not up to date. Update [Y/n]? " update_yn
+  if [ "$update_yn" = "n" ]; then
+    echo "Not updating. Starting script..."
+  else
+    echo "Okay! Starting update..."
+    # begin update
+    curl https://raw.githubusercontent.com/notronaldmcdonald/bash-scripts/master/simple_ssh.sh -o $store/update_ssh
+    echo "Download finished. Checking for installation status..."
+    if [ -e /etc/issh-installed ]; then
+      echo "Script is installed as system binary."
+      echo "Replacing old file..."
+      currentlocation=$(pwd)
+      mv $store/update_ssh $currentlocation/simple_ssh.sh
+      echo "Copied locally."
+      if [ "$currentuser" != "root" ]; then
+        echo "Insufficient privileges. Requesting privilege escalation..."
+        sudo mv $currentlocation/simple_ssh.sh /usr/local/bin/interactive-ssh || echo "Script failed. (Insufficient privileges?)" && exit
+        echo "Updated system binary version successfully."
+      else
+        echo "Replacing system binary file..."
+        mv $currentlocation/simple_ssh.sh /usr/local/bin/interactive-ssh || echo "Something went wrong." && exit
+      fi
+    else
+      echo "Script is not installed as a system binary. Replacing local version only."
+    fi
+  fi
+fi
+
 # begin script
 
 echo ${RESET}Welcome to SimpleSSH! This script is designed to make using OpenSSH slightly more user friendly.

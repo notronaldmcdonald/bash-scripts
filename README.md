@@ -9,7 +9,7 @@ currently includes **11** scripts.
 
 * **secure_backup.sh** - a bash script that creates an archive of a user's target backup directory, encrypts it, and then sends it over the internet.
 
-* **simple_ssh.sh** - a script to make connecting via OpenSSH just a bit more friendly. can be installed as a system binary.
+* **simple_ssh.sh** - a script to make connecting via OpenSSH just a bit more friendly. can be installed as a system binary. incudes an automatic update function.
   *  *simple_ssh_documented.sh* - same thing as above, but with comments.
 * **apt_update.sh** - because updating apt-based systems is shit.
 
