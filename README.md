@@ -15,6 +15,8 @@ currently includes **11** scripts.
 
 * **csync.sh** - gets dotfiles and moves them to the home directory. (redundant)
 
+* **archsync.sh** - creates base dotfiles for bash + zsh, downloads a few packages. makes *sync* and *csync* redundant.
+
 # malware
 
 * **toptenmostdangerouslinuxcommands** - literally deletes root. this is the shittiest thing ever.

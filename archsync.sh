@@ -36,7 +36,7 @@ echo "Okay! Starting with packages..."
 pacman -Syu --noconfirm
 read -n1 -r -p "Full system upgrade complete. Press ENTER to continue."
 echo "Downloading packages..."
-pacman -S --noconfirm sudo nano neofetch xorg-server zsh
+pacman -S --noconfirm sudo nano neofetch xorg-server zsh bpytop
 echo "Packages downloaded. Downloading zsh extensions..."
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh-extensions/zsh-syntax-highlighting/
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh-extensions/zsh-autosuggestions/
