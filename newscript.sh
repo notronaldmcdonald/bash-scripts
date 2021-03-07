@@ -18,6 +18,10 @@ else
   echo "nothing" > /dev/null
 fi
 echo " " >> ~/bash-scripts/newproject.sh
+echo "# load foundation variables" >> ~/bash-scripts/newproject.sh
+echo " " >> ~/bash-scripts/newproject.sh
+echo "source ~/bash-scripts/foundation/foundation-base"
+echo " " >> ~/bash-scripts/newproject.sh
 echo "# begin script" >> ~/bash-scripts/newproject.sh
 echo "What will you name this project?"
 read -p "Enter a name: " scriptname
