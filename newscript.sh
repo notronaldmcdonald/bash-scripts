@@ -20,7 +20,7 @@ fi
 echo " " >> ~/bash-scripts/newproject.sh
 echo "# load foundation variables" >> ~/bash-scripts/newproject.sh
 echo " " >> ~/bash-scripts/newproject.sh
-echo "source ~/bash-scripts/foundation/foundation-base"
+echo "source ~/bash-scripts/foundation/*"
 echo " " >> ~/bash-scripts/newproject.sh
 echo "# begin script" >> ~/bash-scripts/newproject.sh
 echo "What will you name this project?"
