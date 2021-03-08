@@ -3,7 +3,7 @@
 # Developed by Brett. (https://github.com/notronaldmcdonald)
 ver=1.0.0
 source ~/bash-scripts/foundation/foundation-base
-source ~/bash-scripts/upstream-targets
+source ~/bash-scripts/foundation/upstream-targets
 
 # fpkgr functions
 # comment out any lines you wish to disable.
@@ -71,8 +71,8 @@ function fpkg-remove() {
 }
 
 # install fpm
-fpm_enabled=no # switch - change to 'yes' to download fpm and check for updates after install. you can call this function after enabling by sourcing the file.
-if [ "$fpm_enabled" = "yes" && ! -e $store/.fpmdllock ]; then
+fpm_enabled=yes # switch - change to 'yes' to download fpm and check for updates after install. you can call this function after enabling by sourcing the file.
+if [ "$fpm_enabled" = "yes" ] && [ ! -e $store/.fpmdllock ]; then
   curl -fs https://raw.githubusercontent.com/notronaldmcdonald/bash-scripts/master/foundation/fpkgr/release-info -o $store/releaseinfo.tmp
   cat $store/releaseinfo.tmp
   rm -f $store/releaseinfo.tmp
@@ -80,12 +80,12 @@ if [ "$fpm_enabled" = "yes" && ! -e $store/.fpmdllock ]; then
   curl https://raw.githubusercontent.com/notronaldmcdonald/fpm/core/fpm -o $store/fpm.tmp
   echo "${BRIGHTGREEN}fpkgr: downloaded fpm."
   echo "${LIGHTBLUE}fpkgr: privilege escalation required to install.${RESET}"
-  sudo cp $store/fpm.tmp /usr/local/fpm
-  sudo chmod +x /usr/local/fpm
+  sudo mv $store/fpm.tmp /usr/local/bin/fpm
+  sudo chmod +x /usr/local/bin/fpm
   echo "${BRIGHTGREEN}fpkgr: fpm installed successfully.${RESET}"
   rm -f $store/fpm.tmp
   touch $store/.fpmdllock
   exit
 else
-  echo "${BRIGHTRED}fpkgr: aborted automatically."
+  echo "${BRIGHTRED}fpkgr: exit."
 fi
