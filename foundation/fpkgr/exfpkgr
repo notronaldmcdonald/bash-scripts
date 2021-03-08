@@ -61,6 +61,7 @@ function fpkg-install() {
     fi
     echo "${YELLOW}==> ${RESET}Cleaning up..."
     rm -f $store/*.tmp
+    rm -f $store/.install/*
     echo "${BRIGHTGREEN}fpkgr: done.${RESET}"
     exit
   fi
