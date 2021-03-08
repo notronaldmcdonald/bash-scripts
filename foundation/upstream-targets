@@ -1,1 +1,5 @@
-curl -fs https://raw.githubusercontent.com/notronaldmcdonald/bash-scripts/master/foundation/foundation-base
+# follow this format to keep upstream sources valid. these are all basic packages, and they have full links.
+# make sure your custom repo has a package list. it is necessary for this to work properly.
+base=https://raw.githubusercontent.com/notronaldmcdonald/bash-scripts/master/foundation/fpkgr/
+main=https://raw.githubusercontent.com/notronaldmcdonald/fpm/core/pkgs
+# experimental=https://raw.githubusercontent.com/notronaldmcdonald/fpm/live/pkgs/
