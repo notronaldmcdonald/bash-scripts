@@ -1,0 +1,94 @@
+# foundation files (foundation-base)
+# common scripting variables and functions.
+# Developed by Brett. (https://github.com/notronaldmcdonald)
+
+# Remove all /dev/null redirects to show all information while running a script that uses foundation.
+# 'nothing' is essentially an "all good" code.
+foundationbuild=1.0
+# variables
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+BROWN=$(tput setaf 3)
+DARKBLUE=$(tput setaf 4)
+PURPLE=$(tput setaf 5)
+BLUE=$(tput setaf 6)
+GRAY=$(tput setaf 7)
+DARKGRAY=$(tput setaf 8)
+BRIGHTRED=$(tput setaf 9)
+BRIGHTGREEN=$(tput setaf 10)
+YELLOW=$(tput setaf 11)
+LIGHTBLUE=$(tput setaf 12)
+PINK=$(tput setaf 13)
+ARCHBLUE=$(tput setaf 14)
+WHITE=$(tput setaf 15)
+BLACK=$(tput setaf 0)
+RESET=$(tput sgr0)
+BOLD=$(tput bold)
+store=$HOME/.bmac
+currentdir=$(pwd)
+deps_default=base
+echo "${BRIGHTGREEN}Basic variables loaded (foundation).${RESET}"
+
+# functions
+function updatefoundation() {
+  # switch - force updates on user. forcing updates will make scripts unusable if offline or out of date.
+  forceupdates=false
+  # default is false. change to true to force updates.
+  echo "Updating foundation file(s)..."
+  # uncomment additional files you need in the 'targets' file. by default it only checks for foundation-base. only supports files in my repo.
+  echo "Checking build..."
+  if [ ! -e $store/foundation ]; then
+    mkdir $store/foundation
+  else
+    echo "nothing" > /dev/null
+  fi
+  curl -fs https://raw.githubusercontent.com/notronaldmcdonald/bash-scripts/master/live/foundation/buildinfo -o $store/foundation/buildinfo
+  source $store/foundation/buildinfo
+  if [ "$rfoundationbuild" = "$foundationbuild" ]; then
+    echo "Up to date."
+  else
+    read -p "Updates are available. Update? [y/N] " fupdateyn
+    if [ "$fupdateyn" = "y" ]; then
+      echo "Updating the foundation file(s)..."
+      subfunction-updatefoundation
+    else
+      if [ "$forceupdates" = "true" ]; then
+        echo "The developer has enabled forced updates. The script will not run if out of date."
+        exit
+      else
+        echo "Attempting execution..."
+      fi
+    fi
+  fi
+}
+
+function subfunction-updatefoundation() {
+  source $store/foundation/targets
+}
+
+echo "${BRIGHTGREEN}Basic functions loaded (foundation).${RESET}"
+
+# runtime options
+if [ ! -e $store/foundation ]; then
+  mkdir $store/foundation
+else
+  echo "nothing" > /dev/null
+fi
+# syncs target list. comment out to disable
+curl -fs https://raw.githubusercontent.com/notronaldmcdonald/bash-scripts/master/foundation/upstream-targets -o $store/foundation/targets
+
+# downloads the latest versions of all full-featured scripts in bash-scripts automatically. uncomment the ones you'd like to integrate into your script.
+# also creates an easy command substitution to run them with. uncomment that too if you see fit.
+# curl -fs https://raw.githubusercontent.com/notronaldmcdonald/bash-scripts/master/simple_ssh.sh -o $store/foundation/.scripts/simple_ssh.sh
+# simplessh=$($store/foundation/.scripts/./simple_ssh.sh)
+# curl -fs https://raw.githubusercontent.com/notronaldmcdonald/bash-scripts/master/secure_backup.sh -o $store/foundation/.scripts/secure_backup.sh
+# securebackup=$($store/foundation/.scripts/./secure_backup.sh)
+# curl -fs https://raw.githubusercontent.com/notronaldmcdonald/bash-scripts/master/archsync.sh -o $store/foundation/.scripts/archsync.sh
+# archsync=$($store/foundation/.scripts/./archsync.sh)
+
+# run foundation update function on ALL scripts. (not recommended unless your script is already online-only). uncomment to enable.
+# updatefoundation
+
+# end of runtime options
+echo "${YELLOW}Starting script execution...${RESET}"
+# handoff to the script
