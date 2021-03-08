@@ -269,7 +269,7 @@ fi
 fpkgr=false # switch - change to 'true' to install the foundation packager when a script runs.
 if [ "$fpkgr" = "true" ]; then
   echo "${C208}nothing${RESET}" > /dev/null
-  if [ ! -e ~/bash-scripts/foundation/fpkgr/exfpkgr ]; then
+  if [ ! -e ~/.fpkgr/fpkgr ]; then
     echo "${C9}The Foundation Packaging Tool is not installed.${RESET}"
   read -p "${C14}Install? [y/N]${RESET} " install_fpkgr
     if [ "$install_fpkgr" = "true" ]; then
