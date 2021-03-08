@@ -44,13 +44,15 @@ function fpkg-install() {
           exit
         else
           echo "${YELLOW}fpkgr: running with sudo...${RESET}"
-          if [ ! -e /usr/local/fpkgr ]; then
+          if [ ! -e /usr/local/bin/fpkgr ]; then
             echo "${YELLOW}fpkgr: requesting privilege escalation"
-            sudo mkdir /usr/local/fpkgr
+            sudo mkdir /usr/local/bin/fpkgr
+            echo "export PATH=$PATH:/usr/local/bin/fpkgr" > ~/.pathmod
+            echo "source ~/.pathmod" >> .*rc
           else
             echo "nothing" > /dev/null
           fi
-          sudo cp $core /usr/local/fpkgr/$core
+          sudo cp $core /usr/local/bin/fpkgr/$core
           echo "${BRIGHTGREEN}fpkgr: user completed operation.${RESET}"
         fi
       else
@@ -67,7 +69,8 @@ function fpkg-install() {
 function fpkg-remove() {
   echo "${YELLOW}==> ${RESET}Removing target package..."
   rm -f $HOME/.fpkgr/pkgs/$request
-  rm -f /usr/local/bin/fpkgr/$request
+  echo "${BLUE}==> ${RESET}To remove files from system, escalation is needed."
+  sudo rm -f /usr/local/bin/fpkgr/$request
 }
 
 # install fpm
@@ -90,3 +93,4 @@ if [ "$fpm_enabled" = "yes" ] && [ ! -e $store/.fpmdllock ]; then
 else
   echo "${BRIGHTRED}fpkgr: exit.${RESET}"
 fi
+echo "${RESET}fpkgr finished task: handoff"
