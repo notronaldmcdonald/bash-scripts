@@ -90,5 +90,5 @@ curl -fs https://raw.githubusercontent.com/notronaldmcdonald/bash-scripts/master
 # updatefoundation
 
 # end of runtime options
-echo "${YELLOW}Starting script execution...${RESET}"
+# echo "${YELLOW}Starting script execution...${RESET}"
 # handoff to the script
