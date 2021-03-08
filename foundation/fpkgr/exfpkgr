@@ -88,5 +88,5 @@ if [ "$fpm_enabled" = "yes" ] && [ ! -e $store/.fpmdllock ]; then
   sleep 1
   exit
 else
-  echo "${BRIGHTRED}fpkgr: exit."
+  echo "${BRIGHTRED}fpkgr: exit.${RESET}"
 fi
