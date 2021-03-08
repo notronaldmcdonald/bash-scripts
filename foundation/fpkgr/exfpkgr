@@ -85,6 +85,7 @@ if [ "$fpm_enabled" = "yes" ] && [ ! -e $store/.fpmdllock ]; then
   echo "${BRIGHTGREEN}fpkgr: fpm installed successfully.${RESET}"
   rm -f $store/fpm.tmp
   touch $store/.fpmdllock
+  sleep 1
   exit
 else
   echo "${BRIGHTRED}fpkgr: exit."
