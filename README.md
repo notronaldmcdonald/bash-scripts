@@ -1,7 +1,7 @@
 # bash-scripts
 repository of my bash scripts.
 
-currently includes **11** scripts.
+currently includes **12** scripts.
 
 * **sync.sh** - updates an arch linux or arch based system and downloads some basic tools that i use. (redundant)
   * *sync_documented.sh* - a variation of sync with comments.
@@ -16,6 +16,8 @@ currently includes **11** scripts.
 * **csync.sh** - gets dotfiles and moves them to the home directory. (redundant)
 
 * **archsync.sh** - creates base dotfiles for bash + zsh, downloads a few packages. makes *sync* and *csync* redundant.
+
+* **newscript.sh** - creates a basic skeleton for a script. not immediately portable, will require modification.
 
 # malware
 

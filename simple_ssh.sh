@@ -116,6 +116,7 @@ fi
 
 echo ${RESET}Welcome to SimpleSSH! This script is designed to make using OpenSSH slightly more user friendly.
 echo "Do you use key-based or password based authentication? Type KEY if you use keyfiles, or PASSWD for password."
+echo "If you need to use a different script command, type HELP for a list."
 read answer_1
 if [ "$answer_1" != "${answer_1#[KEYkey]}" ]; then
   if [ "$firstrun" = "true" ]; then
@@ -186,6 +187,28 @@ elif [ "$answer_1" != "${answer_1#[RESETreset]}" ]; then
   rm -f $store/vars $store/firstrun
   echo "Done. Exiting..."
   exit
+elif [ "$answer_1" != "$answer_1#[UNINSTALLuninstall]]" ]; then
+  echo "Are you sure you want to uninstall?"
+  read -n1 -r -p "Press ENTER to confirm, CTRL+C to exit."
+  echo "Removing variable files and removing from /usr/local/bin..."
+  rm -f $store/vars $store/firstrun
+  echo "Variable files removed."
+  if [ "$(whoami)" != "root" ]; then
+    echo "Insufficient privilege to modify files in /usr/local/bin. Requesting escalation..."
+    sudo rm -f /usr/local/bin/interactive-ssh
+    sudo rm -f /etc/issh-installed
+    echo "Done!"
+  else
+    echo "Already running as root."
+    rm -f /usr/local/bin/interactive-ssh
+    rm -f /etc/issh-installed
+  fi
+  echo "Uninstalled successfully."
+elif [ "$answer_1" != "${answer_1#[HELPhelp]}" ]; then
+  echo "Interactive SSH Commands"
+  echo "From this prompt, you can use a few special-case commands."
+  echo "Reset: Removes the user variable files."
+  echo "Uninstall: Remove the script from /usr/local/bin if it has been installed, and removes user variable files."
 else
   echo "Unexpected input received! Exiting..." && exit
 fi
