@@ -11,7 +11,7 @@ source ~/bash-scripts/foundation/upstream-targets
 function fpkg-install() {
   echo "${YELLOW}==> ${RESET}Beginning installation process..."
   curl -fs $main/pkglist.txt -o $store/pkglist.tmp
-  cat $store/pkglist.tmp | grep $request > $store/output.tmp
+  cat $store/pkglist.tmp | grep -w $request > $store/output.tmp
   if [ "$(cat $store/output.tmp)" = " " ]; then
     echo "${BRIGHTRED}fpkgr: package not found${RESET}"
   else
