@@ -7,6 +7,8 @@
 
 * *foundation-base* - the core of the foundation project. 16 color + bold text formatting, automatic update function.
 
+* *foundation-extra* - additional features. 256 color support + other text formatting, fpkgr, password storing.
+
 * *FREADME.md* - what you're reading right now.
 
 * *upstream-targets* - a file that contains the list of curl commands to download foundation files.
