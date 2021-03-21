@@ -32,4 +32,3 @@ currently includes **12** scripts.
 |----------|---------------------------------------------------------------------------------|
 | master   | The main branch. Generally stable and fully working.                            |
 | dev      | The 'active' branch. Contains active projects, possibly not tested.             |
-| previous | A safety branch in case some erroneous error is committed to master and missed. |
