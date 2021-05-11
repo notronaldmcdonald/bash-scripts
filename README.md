@@ -1,7 +1,7 @@
 # shell
 repository of my shell scripts
 
-currently includes **13** scripts.
+currently includes **11** scripts.
 
 * **sync.sh** - updates an arch linux or arch based system and downloads some basic tools that i use. (redundant)
   * *sync_documented.sh* - a variation of sync with comments.
@@ -21,16 +21,3 @@ currently includes **13** scripts.
 
 * **cpuinfo.sh** - get cpu information
 
-# malware
-
-* **toptenmostdangerouslinuxcommands** - literally deletes root. this is the shittiest thing ever.
-
-* **why** - i wrote this at 1am
-
-### What's the deal with the branches?
-
-----------------------------------------------------------------------------------------------
-| Branch   | Function                                                                        |
-|----------|---------------------------------------------------------------------------------|
-| master   | The main branch. Generally stable and fully working.                            |
-| dev      | The 'active' branch. Contains active projects, possibly not tested.             |
