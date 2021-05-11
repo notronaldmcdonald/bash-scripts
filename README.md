@@ -1,5 +1,5 @@
-# bash-scripts
-repository of my bash scripts, and home to Foundation.
+# shell
+repository of my shell scripts
 
 currently includes **13** scripts.
 
