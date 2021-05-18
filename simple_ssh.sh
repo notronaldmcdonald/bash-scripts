@@ -187,7 +187,7 @@ elif [ "$answer_1" != "${answer_1#[RESETreset]}" ]; then
   rm -f $store/vars $store/firstrun
   echo "Done. Exiting..."
   exit
-elif [ "$answer_1" != "$answer_1#[UNINSTALLuninstall]]" ]; then
+elif [ "$answer_1" != "${answer_1#[UNINSTALLuninstall]}" ]; then
   echo "Are you sure you want to uninstall?"
   read -n1 -r -p "Press ENTER to confirm, CTRL+C to exit."
   echo "Removing variable files and removing from /usr/local/bin..."
