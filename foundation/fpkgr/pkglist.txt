@@ -1,4 +1,0 @@
-foundation-base
-foundation-extra
-fpkgr
-fpm
