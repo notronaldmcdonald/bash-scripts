@@ -11,7 +11,7 @@ source ~/bash-scripts/foundation/upstream-targets
 function fpkg-install() {
   echo "${YELLOW}==> ${RESET}Beginning installation process..."
   curl -fs $main/pkglist.txt -o $store/pkglist.tmp
-  cat $store/pkglist.tmp | grep $request > $store/output.tmp
+  cat $store/pkglist.tmp | grep -w $request > $store/output.tmp
   if [ "$(cat $store/output.tmp)" = " " ]; then
     echo "${BRIGHTRED}fpkgr: package not found${RESET}"
   else
@@ -44,13 +44,15 @@ function fpkg-install() {
           exit
         else
           echo "${YELLOW}fpkgr: running with sudo...${RESET}"
-          if [ ! -e /usr/local/fpkgr ]; then
+          if [ ! -e /usr/local/bin/fpkgr ]; then
             echo "${YELLOW}fpkgr: requesting privilege escalation"
-            sudo mkdir /usr/local/fpkgr
+            sudo mkdir /usr/local/bin/fpkgr
+            echo "export PATH=$PATH:/usr/local/bin/fpkgr" > ~/.pathmod
+            echo "source ~/.pathmod" >> .*rc
           else
             echo "nothing" > /dev/null
           fi
-          sudo cp $core /usr/local/fpkgr/$core
+          sudo cp $core /usr/local/bin/fpkgr/$core
           echo "${BRIGHTGREEN}fpkgr: user completed operation.${RESET}"
         fi
       else
@@ -59,6 +61,7 @@ function fpkg-install() {
     fi
     echo "${YELLOW}==> ${RESET}Cleaning up..."
     rm -f $store/*.tmp
+    rm -f $store/.install/*
     echo "${BRIGHTGREEN}fpkgr: done.${RESET}"
     exit
   fi
@@ -67,7 +70,8 @@ function fpkg-install() {
 function fpkg-remove() {
   echo "${YELLOW}==> ${RESET}Removing target package..."
   rm -f $HOME/.fpkgr/pkgs/$request
-  rm -f /usr/local/bin/fpkgr/$request
+  echo "${BLUE}==> ${RESET}To remove files from system, escalation is needed."
+  sudo rm -f /usr/local/bin/fpkgr/$request
 }
 
 # install fpm
@@ -85,7 +89,9 @@ if [ "$fpm_enabled" = "yes" ] && [ ! -e $store/.fpmdllock ]; then
   echo "${BRIGHTGREEN}fpkgr: fpm installed successfully.${RESET}"
   rm -f $store/fpm.tmp
   touch $store/.fpmdllock
+  sleep 1
   exit
 else
-  echo "${BRIGHTRED}fpkgr: exit."
+  echo "${BRIGHTRED}fpkgr: exit.${RESET}"
 fi
+echo "${RESET}fpkgr finished task: handoff"

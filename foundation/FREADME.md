@@ -1,6 +1,6 @@
 # Foundation Project
 
-## A project to unify my scripts. Common variables and functions, and maybe a few niche ones.
+## A bash scripting library I use for myself.
 *Maybe you'll find something here useful?*
 
 **Files**
